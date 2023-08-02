@@ -14,7 +14,7 @@ let idCounter = 0;
 let bookTemplate = new BookTemplate(container);
 
 bookForm.addEventListener('submit', (e) => {
-  const book = new Book(title.value, author.value, pages.valueAsNumber, Boolean(isReaded.value), `${title.value[0]}${author.value[0]}${idCounter}`);
+  const book = new Book(title.value, author.value, pages.valueAsNumber, isReaded.value === "Yes" ? true : false, `${title.value[0]}${author.value[0]}${idCounter}`);
   idCounter += 1;
   bookTemplate.render(book);
 
