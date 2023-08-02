@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Book = void 0;
-class Book {
+export class Book {
     constructor(title, author, pages, isReaded, id) {
         this.title = title;
         this.author = author;
@@ -10,4 +7,3 @@ class Book {
         this.id = id;
     }
 }
-exports.Book = Book;

@@ -1,29 +1,30 @@
 import { Book } from "./book.js";
 
 export class BookTemplate {
-  constructor(private container: HTMLDivElement) {}
+  constructor(private container: HTMLElement) {}
 
   render(book: Book) {
-    const bookItem = document.createElement('div') as HTMLDivElement;
-    bookItem.className = "book-item col-12 col-md-6 col-lg-4";
-    bookItem.id = book.id;
-    bookItem.innerHTML = `
-    <div class="card shadow">
-      <div class="card-body">
-        <h5 class="card-title">${book.title}</h5>
-        <h6 class="card-text">${book.author}</h6>
-        <h6 class="card-text">${book.pages}</h6>
-        <button class="btn ${book.isReaded ? "btn-success" : "btn-secondary"} col-12 mt-3">
-          ${book.isReaded ? '<i class="bi bi-check2"></i>' : "Not"}
-          Readed
-        </button>
-        <button class="btn btn-danger col-12 mt-3 delete-book">
-          <i class="bi bi-trash"></i>
-          Remove
-        </button>
-      </div>
-    </div>`;
+    const tr = document.createElement('tr');
+    const titleTh = document.createElement('th');
+    const auhorTd = document.createElement('td');
+    const pagesTd = document.createElement('td');
+    const isReadedTd = document.createElement('td');
+    const removeTd = document.createElement('td');
+    
+    titleTh.innerText = book.title;
+    auhorTd.innerText = book.author;
+    pagesTd.innerText = String(book.pages);
+    isReadedTd.innerText = book.isReaded ? 'Yes' : 'No';
+    removeTd.innerHTML = `<button class="btn btn-danger btn-sm">
+                            Remove
+                          </button>`;
 
-    this.container.appendChild(bookItem);
+    tr.appendChild(titleTh);
+    tr.appendChild(auhorTd);
+    tr.appendChild(pagesTd);
+    tr.appendChild(isReadedTd);
+    tr.appendChild(removeTd);
+
+    this.container.appendChild(tr);
   }
 }
