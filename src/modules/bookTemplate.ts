@@ -11,11 +11,12 @@ export class BookTemplate {
     const isReadedTd = document.createElement('td');
     const removeTd = document.createElement('td');
     
+    tr.id = book.id;
     titleTh.innerText = book.title;
     auhorTd.innerText = book.author;
     pagesTd.innerText = String(book.pages);
     isReadedTd.innerText = book.isReaded ? 'Yes' : 'No';
-    removeTd.innerHTML = `<button class="btn btn-danger btn-sm">
+    removeTd.innerHTML = `<button class="btn btn-danger btn-sm delete">
                             Remove
                           </button>`;
 
