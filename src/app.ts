@@ -6,11 +6,11 @@ const bookForm = document.getElementById('book-form') as HTMLFormElement;
 const title = document.getElementById('title') as HTMLInputElement;
 const author = document.getElementById('author') as HTMLInputElement;
 const pages = document.getElementById('pages') as HTMLInputElement;
-const isReaded = document.getElementById('isReaded') as HTMLInputElement;
+const isRead = document.getElementById('isRead') as HTMLInputElement;
 
 // @ts-ignore
 let library: Book[] = JSON.parse(localStorage.getItem("library")) === null ? [] : JSON.parse(localStorage.getItem("library"));
-let idCounter = 0;
+let idCounter: number = 0;
 
 let bookTemplate = new BookTemplate(container);
 
@@ -20,7 +20,7 @@ removeBtns.map(btn => btn.addEventListener('click', e => removeFromLibrary(e)));
 
 const addToLibrary: Function = (e: Event) => {  
   e.preventDefault();
-  const book = new Book(title.value, author.value, pages.valueAsNumber, isReaded.value === "Yes" ? true : false, `${title.value[0]}${author.value[0]}${idCounter}`);
+  const book = new Book(title.value, author.value, pages.valueAsNumber, isRead.value === "Yes" ? true : false, `${title.value[0]}${author.value[0]}${idCounter}`);
   idCounter += 1;
 
   library.push(book);
