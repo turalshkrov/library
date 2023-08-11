@@ -5,7 +5,7 @@ const bookForm = document.getElementById('book-form');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
 const pages = document.getElementById('pages');
-const isReaded = document.getElementById('isReaded');
+const isRead = document.getElementById('isRead');
 // @ts-ignore
 let library = JSON.parse(localStorage.getItem("library")) === null ? [] : JSON.parse(localStorage.getItem("library"));
 let idCounter = 0;
@@ -15,7 +15,7 @@ let removeBtns = [...document.querySelectorAll('.delete')];
 removeBtns.map(btn => btn.addEventListener('click', e => removeFromLibrary(e)));
 const addToLibrary = (e) => {
     e.preventDefault();
-    const book = new Book(title.value, author.value, pages.valueAsNumber, isReaded.value === "Yes" ? true : false, `${title.value[0]}${author.value[0]}${idCounter}`);
+    const book = new Book(title.value, author.value, pages.valueAsNumber, isRead.value === "Yes" ? true : false, `${title.value[0]}${author.value[0]}${idCounter}`);
     idCounter += 1;
     library.push(book);
     localStorage.setItem('library', JSON.stringify(library));
