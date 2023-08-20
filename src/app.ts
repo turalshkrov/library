@@ -10,7 +10,7 @@ const isRead = document.getElementById('isRead') as HTMLInputElement;
 
 // @ts-ignore
 let library: Book[] = JSON.parse(localStorage.getItem("library")) === null ? [] : JSON.parse(localStorage.getItem("library"));
-let idCounter: number = 0;
+let idCounter: number = library.length;
 
 let bookTemplate = new BookTemplate(container);
 
